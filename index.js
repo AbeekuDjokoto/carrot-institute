@@ -67,6 +67,9 @@ function search(e) {
         if (response.data.Response === "False") {
           errorMessage.innerHTML = response.data.Error;
           title.innerHTML = "";
+          setTimeout(() => {
+            pagination.style.display = "none";
+          }, 10000);
         } else {
           errorMessage.innerHTML = "";
           const movieArray = response.data.Search;
@@ -79,6 +82,7 @@ function search(e) {
     })
     .catch((error) => {
       errorMessage.innerHTML = error.message;
+      pagination.style.display = "none";
     })
     .finally(() => {
       input.value = "";
@@ -86,7 +90,14 @@ function search(e) {
     });
 }
 
+function clearPagination() {
+  while (paginationList.firstChild) {
+    paginationList.firstChild.remove();
+  }
+}
+
 function renderPagination(paginationLength) {
+  clearPagination();
   for (let i = 1; i <= paginationLength; i++) {
     const paginationItem = document.createElement("div");
     paginationItem.classList.add("pagination__item");
@@ -117,6 +128,10 @@ function searchPagination(value) {
         if (response.data.Response === "False") {
           errorMessage.innerHTML = response.data.Error;
           title.innerHTML = "";
+
+          setTimeout(() => {
+            pagination.style.display = "none";
+          }, 10000);
         } else {
           errorMessage.innerHTML = "";
           const movieArray = response.data.Search;
@@ -132,6 +147,7 @@ function searchPagination(value) {
     })
     .catch((error) => {
       errorMessage.innerHTML = error.message;
+      pagination.style.display = "none";
     })
     .finally(() => {
       input.value = "";
