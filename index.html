@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie site through search</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="home--container">
+        <header class="header">
+            <h1 class="title">Movie App</h1>
+        </header>
+        
+      
+        <form name="search">
+            <div class="search-container">
+                <input type="text" name="searchInput" id="search-value" placeholder="Enter movie title..." class="input">
+                <button type="submit" value="submit" class="button right">Search</button>
+            </div> 
+            <div class="sort-container">
+                <select name="sortSelect" id="sort-select">
+                  <option value="1" class=".options">Sort by</option>
+                  <option value="year" class=".options">Release Date</option>
+                  <option value="type">Type</option>
+                </select>
+            </div>
+        </form>
+        
+        <div>
+            <h1 id="error-message" class="error__message"></h1>
+            <div  class="container" id="title"></div>
+        </div>
+
+
+            <div id="pagination-list" class="pagination__list"></div>
+
+    </div>
+    <footer>
+        <img src="./new-york.png" alt="New York image in the background" class="footer">
+    </footer>
+    
+    
+    <script type="module" src="index.js"></script>
+</body>
+</html>

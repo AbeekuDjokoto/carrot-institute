@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single View</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div>
+        <header class="header">
+            <h1 class="title">Movie App</h1>
+        </header>
+        <main class="single--container">
+            <img src="" alt="" id="poster">
+            <div class="single--inner">
+                <button class="button" id="backButton">Back</button>
+                <h1 id="title" class="single--title"></h1>
+                <div class="single--flex">
+                    <p id="type"></p>
+                    <p id="released"></p>
+                </div>
+                <div class="single--flex">
+                    <p class="single-property">Plot:</p>
+                    <p id="plot"></p>
+                </div>
+                <div class="single--flex">
+                    <p class="single-property">Actors:</p>
+                    <p id="actors"></p>
+                </div>
+                <div class="single--flex">
+                    <p class="single-property">Genre:</p>
+                    <p id="genre"></p>
+                </div>
+                <div class="single--flex">
+                    <p class="single-property">IMDB Rating: </p>
+                    <p id="rating"></p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <img src="./new-york.png" alt="New York image in the background" class="footer">
+    </footer>
+    
+    
+    <script type="module" src="./SingleView.js"></script>
+</body>
+</html>
