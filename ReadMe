@@ -1,0 +1,16 @@
+Step 1
+Navigate to directory where you would want to place the MovieApp project and enter the command below to clone the project
+
+git clone https://github.com/AbeekuDjokoto/carrot-institute.git
+
+Step 2
+Change directory into carrot-institute
+
+cd carrot-institute
+
+Step 3
+npx serve
+install the package
+
+step 4
+copy and paste the local address into your browser
