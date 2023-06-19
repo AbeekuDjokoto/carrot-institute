@@ -1,14 +1,15 @@
-Step 1
+Installation and Setup
 Navigate to directory where you would want to place the MovieApp project and enter the command below to clone the project
+
+Step 1: Clone the project repository: 
 
 git clone https://github.com/AbeekuDjokoto/carrot-institute.git
 
-Step 2
-Change directory into carrot-institute
-
+Step 2: Navigate to the project directory:
+   
 cd carrot-institute
 
-Step 3
+Step 3 : R
 npx serve
 install the package
 
