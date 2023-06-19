@@ -60,34 +60,43 @@ function search(e) {
 
   dataStore.length = 0;
 
-  axios
-    .get(`${url}s=${searchValue}`)
-    .then((response) => {
-      if (response.status === 200) {
-        if (response.data.Response === "False") {
-          errorMessage.innerHTML = response.data.Error;
-          title.innerHTML = "";
-          setTimeout(() => {
-            pagination.style.display = "none";
-          }, 10000);
-        } else {
-          errorMessage.innerHTML = "";
-          const movieArray = response.data.Search;
+  if (searchValue.length < 3) {
+    errorMessage.innerText = "Sorry, the characters should be more than two";
+    title.innerHTML = "";
+    clearPagination();
+  } else {
+    axios
+      .get(`${url}s=${searchValue}`)
+      .then((response) => {
+        if (response.status === 200) {
+          if (response.data.Response === "False") {
+            errorMessage.innerHTML = response.data.Error;
+            title.innerHTML = "";
+            clearPagination();
+          } else {
+            errorMessage.innerHTML = "";
+            const movieArray = response.data.Search;
 
-          renderMovies(movieArray);
-          dataStore.push(...movieArray);
-          sortResults();
+            renderMovies(movieArray);
+            dataStore.push(...movieArray);
+            sortResults();
+            if (response.data.Error === "Movie not found!") {
+              console.log("do nothing");
+            } else {
+              searchPagination();
+            }
+          }
         }
-      }
-    })
-    .catch((error) => {
-      errorMessage.innerHTML = error.message;
-      pagination.style.display = "none";
-    })
-    .finally(() => {
-      input.value = "";
-      searchPagination();
-    });
+      })
+      .catch((error) => {
+        errorMessage.innerHTML = error.message;
+        pagination.style.display = "none";
+      })
+      .finally(() => {
+        input.value = "";
+        // searchPagination();
+      });
+  }
 }
 
 function clearPagination() {
@@ -117,6 +126,7 @@ function renderPagination(paginationLength) {
 }
 
 function searchPagination(value) {
+  console.log("value", value);
   dataStore.length = 0;
   let paginationLength = 0;
   currentPage = value;
@@ -129,9 +139,7 @@ function searchPagination(value) {
           errorMessage.innerHTML = response.data.Error;
           title.innerHTML = "";
 
-          setTimeout(() => {
-            pagination.style.display = "none";
-          }, 10000);
+          pagination.style.display = "none";
         } else {
           errorMessage.innerHTML = "";
           const movieArray = response.data.Search;
